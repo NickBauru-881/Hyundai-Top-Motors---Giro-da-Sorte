@@ -106,7 +106,7 @@ function girar() {
      resultadoEl.textContent = `🎉 Parabéns! Você ganhou: ${premio}`;
 
 
-     const numeroWhatsApp = '5514996073666'; 
+     const numeroWhatsApp = '5514997246268'; 
      const mensagem = `Oi 👋 Acabei de girar a Roleta Premiada da Hyundai Top Motors e ganhei 🎁 *${premio}*! Quero saber como resgatar 🤩`;
      const mensagemCodificada = encodeURIComponent(mensagem);
      const linkWhatsapp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
