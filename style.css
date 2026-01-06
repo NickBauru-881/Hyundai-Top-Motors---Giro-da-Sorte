@@ -1,7 +1,6 @@
 body {
  font-family: "Open Sans", sans-serif;
  font-style: normal;
- font-variation-settings: "wdth" 100;
  background: url('assets/FUNDO.png') no-repeat center center fixed;
  background-size: cover;
  margin: 0;
@@ -12,110 +11,103 @@ body {
  align-items: center;
  justify-content: flex-start;
  min-height: 100vh;
- padding-top: 100px;
+ padding-top: 60px; /* Reduzi um pouco para caber melhor no mobile */
  text-align: center;
+ overflow-x: hidden; /* Evita rolagem lateral indesejada */
 }
-
 
 .logo {
  position: absolute;
  top: 20px;
  left: 20px;
- width: 250px;
+ width: 180px; /* Otimizado para telas menores */
+ z-index: 10;
 }
 
-
 h1 {
- /* Adicione ao final do style.css */
+ color: #ffffff;
+ margin-bottom: 20px;
+ font-size: 28px;
+ text-align: center;
+}
 
+/* --- ESTILOS DA CAMPANHA DE JANEIRO --- */
 .titulo-janeiro {
   font-family: "Open Sans", sans-serif;
   font-weight: 800;
   text-transform: uppercase;
   font-size: 32px;
-  line-height: 1.2;
-  color: #ffffff !important; /* AQUI ESTAVA O ERRO */
-  margin-bottom: 25px;
-  text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+  line-height: 1.1;
+  color: #ffffff !important;
+  margin-bottom: 20px;
+  text-shadow: 0px 3px 6px rgba(0,0,0,0.6);
   letter-spacing: -1px;
+  padding: 0 15px;
+  z-index: 5;
 }
 
 .titulo-janeiro .destaque {
-  color: #ffffff‎; /* Azul Cyan da Hyundai para destacar a ação */
+  color: #00AAD2 !important; /* Azul Cyan Hyundai */
 }
 
-/* Ajuste Mobile para não quebrar no celular */
-@media (max-width: 600px) {
-  .titulo-janeiro {
-    font-size: 24px;
-    color: #ffffff;
-    padding: 0 10px;
-  }
-}
-}
-
-
+/* --- ESTRUTURA DA ROLETA --- */
 .slot-machine {
  display: flex;
  gap: 10px;
- margin: 24px 0;
+ margin: 20px 0;
  justify-content: center;
+ z-index: 5;
 }
 
-
 .slot {
- width: 140px;
+ width: 130px; /* Levemente menor para garantir que 3 caibam em mobiles pequenos */
  height: 100px;
  border: 3px solid #a8a9a8;
  border-radius: 10px;
  background-color: #ffffff;
  overflow: hidden;
  position: relative;
- box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-
 
 .reel {
  position: absolute;
  top: 0;
  width: 100%;
- height: 500px;
- animation: none;
+ height: 500px; /* Garante espaço para a animação */
 }
-
-
-.display {
- display: flex;
- align-items: center;
-}
-
 
 .reel img {
  width: 100%;
- height: 100px;
+ height: 100px; /* Altura exata do slot para centralizar */
+ object-fit: contain; /* Garante que o carro não fique esticado */
  display: block;
+ padding: 5px; /* Respiro interno */
+ box-sizing: border-box;
 }
 
-
+/* --- BOTÕES E INTERAÇÃO --- */
 .button {
  display: inline-block;
- background-color: #004c8c;
+ background: linear-gradient(180deg, #004c8c 0%, #003366 100%); /* Degradê mais premium */
  color: white;
  border: none;
- padding: 12px 36px;
- border-radius: 6px;
+ padding: 15px 40px;
+ border-radius: 50px; /* Botão arredondado é mais moderno */
  cursor: pointer;
- font-size: 18px;
- transition: background-color 0.3s ease;
+ font-size: 20px;
+ font-weight: bold;
+ text-transform: uppercase;
+ box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+ transition: transform 0.2s, box-shadow 0.2s;
  text-decoration: none;
  min-width: 280px;
+ z-index: 5;
 }
 
-
-.button:hover {
- background-color: #1083f7;
+.button:active {
+ transform: scale(0.95);
 }
-
 
 .result {
  margin-top: 20px;
@@ -123,155 +115,91 @@ h1 {
  color: #fff;
  text-align: center;
  font-weight: bold;
+ text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+ min-height: 30px;
+ z-index: 5;
 }
 
-
-/* --- CORREÇÃO DO TIMER (OVERLAY/POPUP) --- */
+/* --- OVERLAY DO TIMER (CORRIGIDO) --- */
 .timer-container {
-  position: fixed; /* Fixa na tela inteira, ignorando o resto */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 76, 140, 0.95); /* Azul Hyundai quase sólido para tapar o fundo */
-  display: none; /* Escondido por padrão */
+  background-color: rgba(0, 44, 95, 0.98); /* Azul Hyundai sólido */
+  display: none; /* JS controla isso */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 9999; /* Garante que fique na frente de TUDO */
+  z-index: 10000; /* Máxima prioridade */
+  backdrop-filter: blur(5px); /* Efeito moderno de desfoque */
 }
 
 .timer-container.show {
-  display: flex; /* Aparece quando adicionamos a classe .show via JS */
+  display: flex;
 }
 
 #timer-text {
-  font-size: 60px; /* Bem grande */
+  font-size: 50px;
   font-weight: 800;
   color: #fff;
-  margin-bottom: 20px;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background: rgba(255,255,255,0.1);
+  padding: 10px 30px;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-variant-numeric: tabular-nums; /* Evita que os números "pulem" na contagem */
 }
 
-/* --- CORREÇÃO DOS ESPAÇAMENTOS DO TEXTO --- */
-
-/* Área do resultado (onde aparece "Você ganhou...") */
-.result {
-  margin-top: 25px;
-  margin-bottom: 25px; /* Empurra o texto legal para baixo */
-  font-size: 22px;
-  color: #fff;
-  font-weight: bold;
-  min-height: 30px; /* Reserva espaço mesmo vazio para não pular */
-  padding: 0 20px;
-}
-
-/* Texto Legal (Rodapé) */
 .legal {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
   max-width: 800px;
-  margin: 40px auto 20px auto; /* Margem superior grande para desgrudar de cima */
+  margin: 40px auto 20px;
   padding: 0 20px;
   line-height: 1.4;
-  position: relative; /* Garante que ele respeite o fluxo da página */
 }
 
-/* Ajuste no botão para não colar no resultado */
-.button {
-  margin-top: 20px; 
-}
-
-
+/* --- ANIMAÇÃO --- */
 @keyframes spin {
  0% { transform: translateY(0); }
- 100% { transform: translateY(-300%); }
+ 100% { transform: translateY(-300px); } /* Ajustado para -300px (3 imagens) */
 }
 
-
-/* Responsivo */
-@media (max-width: 600px) and (orientation: portrait) {
-
-
+/* --- RESPONSIVO --- */
+@media (max-width: 600px) {
  body {
- background: url('assets/MOBILE.png') no-repeat center center fixed;
-}
-
-
-
-
- .slot-machine {
-   display: flex;
-   justify-content: center;
-   flex-direction:row;
-   align-items: center;
+   background: url('assets/MOBILE.png') no-repeat center top fixed;
+   background-size: cover;
+   padding-top: 80px;
  }
-
-
- .slot {
-   display: flex;
-   justify-content: center;
-   flex-direction: row;
-   margin-bottom: 10px;
- }
-
-
- h1 {
-   font-size: 24px;
- }
-
 
  .logo {
-   width: 90px;
-   top: 10px;
-   left: 10px;
+   width: 120px;
+   left: 50%;
+   transform: translateX(-50%); /* Centraliza logo no mobile */
+ }
+ 
+ .titulo-janeiro {
+    font-size: 22px;
+    margin-top: 10px;
  }
 
+ .slot-machine {
+   gap: 5px;
+ }
+
+ .slot {
+   width: 30vw; /* Usa largura da tela para não quebrar */
+   height: 80px; /* Slots menores no celular */
+ }
+ 
+ .reel img {
+    height: 80px;
+ }
 
  .button {
    width: 90%;
-   padding: 12px 0;
- }
-}
-
-
-@media (max-width: 500px) and (orientation: portrait) {
-
-
- body {
- background: url('assets/MOBILE.png') no-repeat center center fixed;
-}
-
-
-
-
- .slot-machine {
-   flex-direction:column;
-   align-items: center;
- }
-
-
- .slot {
-   flex-direction: column;
-   margin-bottom: 10px;
- }
-
-
- h1 {
-   font-size: 24px;
-   color: #ffffff;
- }
-
-
- .logo {
-   width: 90px;
-   top: 10px;
-   left: 10px;
- }
-
-
- .button {
-   width: 90%;
-   padding: 12px 0;
+   font-size: 18px;
  }
 }
