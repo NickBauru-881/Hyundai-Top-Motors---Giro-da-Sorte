@@ -30,7 +30,6 @@ h1 {
 
 .titulo-janeiro {
   font-family: "Open Sans", sans-serif; /* Usando a fonte do projeto */
-  font-weight: 800; /* Peso extra bold para impacto visual */
   text-transform: uppercase; /* Caixa alta estilo varejo automotivo */
   font-size: 32px; /* Um pouco maior para chamar atenção */
   line-height: 1.2;
