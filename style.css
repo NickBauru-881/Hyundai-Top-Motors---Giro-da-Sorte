@@ -48,6 +48,7 @@ h1 {
 @media (max-width: 600px) {
   .titulo-janeiro {
     font-size: 24px;
+    color: #ffffff;
     padding: 0 10px;
   }
 }
@@ -258,6 +259,7 @@ h1 {
 
  h1 {
    font-size: 24px;
+   color: #ffffff;
  }
 
 
