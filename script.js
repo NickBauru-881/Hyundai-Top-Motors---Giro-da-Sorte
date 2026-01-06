@@ -12,7 +12,7 @@ const premios = [
  "Bônus / Desconto de R$3mil",
  "Bônus / Desconto de R$2mil",
  "Documento + IPVA Grátis",
- "1 ano de combustível grátis (1 abastecimento a álcool/mês)"
+ "1 ano de combustível grátis (1 abastecimento a álcool/mês)",
  "Até a tabela FIPE no seu Seminovo"
 ];
 
