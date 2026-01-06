@@ -38,25 +38,35 @@ function girar() {
  };
 
 
- if (agora - dadosRoleta.primeiroGiro > tempoLimite) {
-   dadosRoleta.primeiroGiro = agora;
-   dadosRoleta.tentativas = 0;
- }
-
-
  if (dadosRoleta.tentativas >= 3) {
    const tempoRestante = tempoLimite - (agora - dadosRoleta.primeiroGiro);
-   document.getElementById("resultado").textContent = `Limite de 3 giros atingido. Aguarde para tentar novamente.`;
-
+   
+   // 1. Limpa o texto lá do fundo para não encavalar
+   document.getElementById("resultado").textContent = ""; 
 
    const timerContainer = document.getElementById("timer-container");
-   timerContainer.classList.add("show");
+   
+   // 2. Cria o aviso DENTRO da tela azul (se ele já não existir)
+   let aviso = document.getElementById("aviso-timer");
+   if(!aviso) {
+       aviso = document.createElement("p");
+       aviso.id = "aviso-timer";
+       // Estilização direta para garantir que fique bonito
+       aviso.style.color = "white";
+       aviso.style.fontSize = "18px";
+       aviso.style.marginBottom = "10px";
+       aviso.style.textAlign = "center";
+       aviso.innerHTML = "Limite de tentativas atingido.<br>Tente novamente em:";
+       
+       // Insere o aviso antes do relógio
+       timerContainer.insertBefore(aviso, document.getElementById("timer-text"));
+   }
 
+   timerContainer.classList.add("show");
 
    iniciarTimer(tempoRestante);
    return;
  }
-
 
  dadosRoleta.tentativas += 1;
  localStorage.setItem("roleta-dados", JSON.stringify(dadosRoleta));
