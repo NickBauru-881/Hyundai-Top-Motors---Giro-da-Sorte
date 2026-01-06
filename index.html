@@ -6,33 +6,40 @@
  <title>Giro da Sorte Hyundai Top Motors</title>
  <link rel="stylesheet" href="style.css" />
  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
  <audio id="audio-spin" src="assets/sound/spin.mp3" preload="auto"></audio>
+ 
  <img src="assets/Logo lateral_Branca (1) (1).png" alt="Hyundai Logo" class="logo" />
+ 
  <h1 class="titulo-janeiro">
     JANEIRO PREMIADO: <br>
     <span class="destaque">GIRE E GANHE</span> CONDIÇÕES EXCLUSIVAS
-</h1>
+ </h1>
+
  <div class="slot-machine">
    <div class="slot" id="slot1"><div class="reel"></div></div>
    <div class="slot" id="slot2"><div class="reel"></div></div>
    <div class="slot" id="slot3"><div class="reel"></div></div>
  </div>
+
  <button class="button" onclick="girar()">Girar Roleta</button>
+ 
  <div class="result" id="resultado"></div>
-<div id="timer-container" class="timer-container">
- <div id="timer-text">30:00</div>
- <div style="margin-top: 20px;">
+
  <a id="cta" href="#" class="button" style="display: none;" target="_blank">
    🎁 Resgatar meu prêmio no WhatsApp
  </a>
-</div>
- <div class="legal">
-Promoção válida exclusivamente nas concessionárias Hyundai Top Motors de Bauru, Jaú, Botucatu, Ourinhos e Marília, vinculada à compra de veículo 0km. O benefício sorteado só será concedido mediante efetivação da compra durante o período promocional, com negociação formalizada, aprovação de crédito e disponibilidade em estoque. Vantagens são pessoais, intransferíveis, não cumulativas e não convertidas em dinheiro. Válidas apenas no ato da compra, mediante apresentação da raspadinha original e intacta. Participar implica ciência e concordância com o regulamento completo, disponível nas lojas. Promoção válida até 31/01/2026  </div>
 
+ <div id="timer-container" class="timer-container">
+    <div id="timer-text">30:00</div>
+ </div>
+
+ <div class="legal">
+   Promoção válida exclusivamente nas concessionárias Hyundai Top Motors de Bauru, Jaú, Botucatu e Ourinhos, vinculada à compra de veículo 0km. O benefício sorteado só será concedido mediante efetivação da compra durante o período promocional, com negociação formalizada, aprovação de crédito e disponibilidade em estoque. Vantagens são pessoais, intransferíveis, não cumulativas e não convertidas em dinheiro. Válidas apenas no ato da compra, mediante apresentação da raspadinha original e intacta. Participar implica ciência e concordância com o regulamento completo, disponível nas lojas. Promoção válida até 31/01/2026
+ </div>
 
  <script src="script.js"></script>
 </body>
