@@ -26,10 +26,31 @@ body {
 
 
 h1 {
- color: #ffffff;
- margin-bottom: 20px;
- font-size: 28px;
- text-align: center;
+ /* Adicione ao final do style.css */
+
+.titulo-janeiro {
+  font-family: "Open Sans", sans-serif; /* Usando a fonte do projeto */
+  font-weight: 800; /* Peso extra bold para impacto visual */
+  text-transform: uppercase; /* Caixa alta estilo varejo automotivo */
+  font-size: 32px; /* Um pouco maior para chamar atenção */
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 25px;
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.5); /* Sombra para leitura no fundo */
+  letter-spacing: -1px; /* Letras mais juntas, estilo moderno */
+}
+
+.titulo-janeiro .destaque {
+  color: #00AAD2; /* Azul Cyan da Hyundai para destacar a ação */
+}
+
+/* Ajuste Mobile para não quebrar no celular */
+@media (max-width: 600px) {
+  .titulo-janeiro {
+    font-size: 24px;
+    padding: 0 10px;
+  }
+}
 }
 
 
