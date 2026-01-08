@@ -11,7 +11,7 @@ const premios = [
  "Bônus de R$3.000,00",
  "Documento Grátis",
  "Um ano de tanque Cheio (limitado a 1 por mês - Alcool)",
- "Super Valorização do Usado"
+ "Super Valorização no seu seminovo"
 ];
 
 // Carrega as imagens nos slots na inicialização
