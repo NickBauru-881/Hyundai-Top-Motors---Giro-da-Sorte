@@ -9,7 +9,7 @@ const imagens = [
 const premios = [
  "Bônus de R$5.000,00",
  "Bônus de R$3.000,00",
- "Documento Grátis",
+ "Documento 2026 Grátis",
  "Um ano de tanque Cheio (limitado a 1 por mês - Alcool)",
  "Super Valorização no seu seminovo"
 ];
