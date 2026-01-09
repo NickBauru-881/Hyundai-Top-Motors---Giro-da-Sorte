@@ -33,7 +33,7 @@ function createReelImages(reel, imagemForcada = null) {
 function girar() {
  console.log("Clicou em girar"); // Log para debug
  const agora = Date.now();
- const tempoLimite = 60000; // 10 minutos
+ const tempoLimite = 600000; // 10 minutos
 
  const dadosRoleta = JSON.parse(localStorage.getItem("roleta-dados")) || {
    primeiroGiro: 0,
